@@ -7,6 +7,8 @@ RSpec.describe ImportFile do
   end
 
   describe "associations" do
+    it { is_expected.to have_many(:orders).dependent(:destroy) }
+
     context "when file is attached" do
       subject { create(:import_file).file }
 

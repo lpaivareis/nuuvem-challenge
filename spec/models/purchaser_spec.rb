@@ -1,5 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Purchaser, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Purchaser do
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:purchase_count) }
+  end
+
+  describe "associations" do
+    it { is_expected.to belong_to(:order) }
+  end
 end

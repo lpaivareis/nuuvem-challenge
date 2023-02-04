@@ -1,5 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Merchant, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Merchant do
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:address) }
+  end
+
+  describe "associations" do
+    it { is_expected.to belong_to(:order) }
+  end
 end
