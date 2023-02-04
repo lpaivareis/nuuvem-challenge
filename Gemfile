@@ -54,6 +54,48 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  #  Use rspec for testing
+  gem "rspec-rails", "~> 6.0.0"
+
+  # Use rubocop for linting
+  gem "rubocop", "~> 1.42"
+
+  # Use rubocop-rails for linting
+  gem "rubocop-rails", "~> 2.17", ">= 2.17.4"
+
+  # Use rubocop-rspec for linting
+  gem "rubocop-rspec", "~> 2.16"
+
+  # Use rubocop-performance for linting
+  gem "rubocop-performance", "~> 1.15", ">= 1.15.2"
+
+  # Use byebug for debugging
+  gem "byebug", "~> 11.1", ">= 11.1.3"
+
+  # Use database_cleaner for cleaning up test data
+  gem "database_cleaner", "~> 2.0", ">= 2.0.1"
+
+  # Use shoulda-matchers for testing
+  gem "shoulda-matchers", "~> 5.0"
+
+  # Use factory_bot_rails for testing
+  gem "factory_bot_rails", "~> 6.2"
+
+  # Use faker for testing
+  gem "faker", "~> 3.1"
+
+  # Use aewsome_print for debugging
+  gem "awesome_print", "~> 1.9", ">= 1.9.2"
+
+  # Use capybara for system testing
+  gem "capybara", "~> 3.38"
+
+  # Use selenium-webdriver for system testing
+  gem "selenium-webdriver", "~> 4.8"
+
+  # Use webdrivers for system testing
+  gem "webdrivers", "~> 4.6", ">= 4.6.0"
 end
 
 group :development do
