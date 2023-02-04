@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 mt-5">
+          <% if notice %>
+            <p style="color: green"><%= notice %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
   </body>
 </html>
