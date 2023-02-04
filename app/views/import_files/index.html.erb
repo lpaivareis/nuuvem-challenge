@@ -5,35 +5,36 @@
 </div>
 
 <div id="import-list">
-      <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Descrição</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @import_files.each do |file| %>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= file.id %></td>
-          <td><%= import_title(file) %></td>
-          <td>
-            <%= link_to file, class: "btn btn-success" do %>
-              <span>
-                <i class="bi bi-search"></i>
-              </span>
-            <%end%>
-          </td>
-          <td>
-            <%= link_to file, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' }  do %>
-              <span>
-                <i class="bi bi-trash"></i>
-              </span>
-            <%end%>
-          </td>
+          <th>ID</th>
+          <th>Descrição</th>
+          <th colspan="2"></th>
         </tr>
-      <% end %>
-    </tbody>
+      </thead>
+
+      <tbody>
+        <% @import_files.each do |file| %>
+          <tr>
+            <td><%= file.id %></td>
+            <td><%= import_title(file) %></td>
+            <td>
+              <%= link_to file, class: "btn btn-success" do %>
+                <span>
+                  <i class="bi bi-search"></i>
+                </span>
+              <%end%>
+            </td>
+            <td>
+              <%= link_to file, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' }  do %>
+                <span>
+                  <i class="bi bi-trash"></i>
+                </span>
+              <%end%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 </div>

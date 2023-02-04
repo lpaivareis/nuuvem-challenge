@@ -60,17 +60,17 @@ RSpec.describe "ImportFiles" do
     end
 
     it "creates a new ImportFile" do
-      expect { post import_files_url, params: params }.to change(ImportFile, :count).by(1)
+      expect { post import_files_url, params: }.to change(ImportFile, :count).by(1)
     end
 
     it "redirects to the created import_file" do
-      post import_files_url, params: params
+      post(import_files_url, params:)
 
       expect(response).to redirect_to(import_file_url(ImportFile.last))
     end
 
     it "returns a success message" do
-      post import_files_url, params: params
+      post(import_files_url, params:)
 
       expect(flash[:notice]).to eq("Import file was successfully created.")
     end
@@ -86,10 +86,10 @@ RSpec.describe "ImportFiles" do
       end
 
       it "does not create a new ImportFile" do
-        expect { post import_files_url, params: params }.not_to change(ImportFile, :count)
+        expect { post import_files_url, params: }.not_to change(ImportFile, :count)
       end
 
-      # todo - fix this
+      # TODO: - fix this
       # it "renders a error message" do
       #   post import_files_url, params: params
 
