@@ -1,5 +1,6 @@
 class ImportFilesController < ApplicationController
   before_action :set_import_file, only: %i[show destroy]
+  after_action :import_orders, only: %i[create]
 
   def index
     @import_files = ImportFile.all
@@ -35,6 +36,10 @@ class ImportFilesController < ApplicationController
   end
 
   def import_file_params
-    params.require(:import_file).permit(:file, :total_amount)
+    params.require(:import_file).permit(:file)
+  end
+
+  def import_orders
+    ImportDataService.call(@import_file)
   end
 end

@@ -3,7 +3,6 @@ require "rails_helper"
 RSpec.describe ImportFile do
   describe "validations" do
     it { is_expected.to validate_presence_of(:file) }
-    it { is_expected.to validate_presence_of(:total_amount) }
   end
 
   describe "associations" do
