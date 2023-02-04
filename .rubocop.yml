@@ -1,0 +1,26 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - bin/**/*
+    - db/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - config/**/*
+    - spec/rails_helper.rb
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  CacheRootDirectory: tmp
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
