@@ -11,5 +11,9 @@ FactoryBot.define do
                                      "text/tab-separated-values")
       end
     end
+
+    trait :total_amount do
+      total_amount { 15 }
+    end
   end
 end

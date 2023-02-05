@@ -13,13 +13,13 @@
             <div class="col-6">
               <h4 class="text-center">Total de vendas</h5>
               <p class="text-center">
-                <%= import_total_amount %>
+                <%= import_total_amount(@import_files) %>
               </p>
             </div>
             <div class="col-6">
               <h4 class="text-center">Ultima Importação</h5>
               <p class="text-center">
-                <%= import_last_import_amount %>
+                <%= import_last_import_amount(@import_files.last) %>
               </p>
           </div>
         </div>
