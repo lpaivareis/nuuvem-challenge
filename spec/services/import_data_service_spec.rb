@@ -23,15 +23,25 @@ RSpec.describe ImportDataService do
       expect(import_file.total_amount).to eq(37.95)
     end
 
-    context "when there is an error" do
-      before do
-        allow_any_instance_of(ImportFile).to receive(:update!).and_raise(StandardError)
+    context "when file is empty" do
+      let(:import_file) { create(:import_file, :with_error) }
+
+      it "does not create orders" do
+        expect { described_class.call(import_file) }.not_to change(Order, :count)
       end
 
-      it "logs the error" do
-        expect(Rails.logger).to receive(:error)
+      it "does not create purchasers" do
+        expect { described_class.call(import_file) }.not_to change(Purchaser, :count)
+      end
 
+      it "does not create merchants" do
+        expect { described_class.call(import_file) }.not_to change(Merchant, :count)
+      end
+
+      it "does not update total amount" do
         described_class.call(import_file)
+
+        expect(import_file.total_amount).to eq(0.0)
       end
     end
   end

@@ -10,6 +10,7 @@ class ImportDataService < ApplicationService
 
   def call
     import_orders
+    update_total_amount
   rescue StandardError => e
     Rails.logger.error(e)
   end
@@ -25,8 +26,10 @@ class ImportDataService < ApplicationService
       create_purchaser(name: row[0], purchase_count: row[3], order_id: order.id)
       create_merchant(name: row[5], address: row[4], order_id: order.id)
     end
+  end
 
-    @import_file.update!(total_amount: @import_file.orders.sum(:item_price))
+  def update_total_amount
+    import_file.update!(total_amount: @import_file.orders.sum(:item_price))
   end
 
   def file_path
