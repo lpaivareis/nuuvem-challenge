@@ -10,7 +10,6 @@ FactoryBot.define do
         Rack::Test::UploadedFile.new(Rails.root.join("spec/fixtures/files/empty_file.tab"),
                                      "text/tab-separated-values")
       end
-
     end
   end
 end
