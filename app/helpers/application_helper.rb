@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def import_total_amount(import_files)
-    return "R$0,00" if import_files.nil? || import_files.empty?
+    return "R$0,00" if import_files.blank?
 
     number_to_currency(ImportFile.all.sum(:total_amount), unit: "R$", separator: ",", delimiter: ".")
   end

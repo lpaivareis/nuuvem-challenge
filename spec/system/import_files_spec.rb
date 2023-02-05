@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe "ImportFiles", type: :system do
+RSpec.describe "ImportFiles" do
   before do
     driven_by(:rack_test)
     create(:import_file)
