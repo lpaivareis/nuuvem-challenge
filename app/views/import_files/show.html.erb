@@ -1,14 +1,6 @@
-<div class="text-end mt-3 mb-3">
-    <%= link_to 'Nova Importação', new_import_file_path, class: "btn btn-primary" %>
+<div class="text-start mt-3 mb-3">
+  <%= link_to "Voltar", import_files_path, class: "btn-success" %>
 </div>
-
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Total de vendas</h5>
-    <p class="card-text">
-      <%= number_to_currency @total_sales %>
-    </p>
-  </div>
 
 <div id="import-list">
     <table class="table table-striped">
@@ -28,7 +20,7 @@
           <tr>
             <td><%= order.purchaser&.name %></td>
             <td><%= order.item_description %></td>
-            <td><%= number_to_currency(order.item_price) %></td>
+            <td><%= format_import_item_price(order.item_price) %></td>
             <td><%= order.merchant&.name %></td>
             <td><%= order.merchant&.address %></td>
           </tr>
