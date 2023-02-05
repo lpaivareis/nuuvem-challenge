@@ -16,13 +16,13 @@
       </thead>
 
       <tbody>
-        <% @import_file.orders.each do |order| %>
+        <% @orders.each do |order| %>
           <tr>
-            <td><%= order.purchaser&.name %></td>
+            <td><%= order.purchaser.name %></td>
             <td><%= order.item_description %></td>
             <td><%= format_import_item_price(order.item_price) %></td>
-            <td><%= order.merchant&.name %></td>
-            <td><%= order.merchant&.address %></td>
+            <td><%= order.merchant.name %></td>
+            <td><%= order.merchant.address %></td>
           </tr>
         <% end %>
       </tbody>
