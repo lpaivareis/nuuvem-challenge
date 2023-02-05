@@ -35,4 +35,6 @@ Para qualidade de código e linter foi utilizado as gems rubocop, rubocop-rails,
 $ bundle exec rubocop
 ```
 
+Para mais detalhes das gems utilizadas você pode consultar o arquivo [Gemfile](Gemfile)
+
 OBS: Foi feito algumas configurações personalizadas elas estão em [.rubocop.yml](.rubocop.yml) alterá-los para rodar em sua maquina local, você pode fazê-lo em [database.yml](config/database.yml).
