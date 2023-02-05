@@ -16,7 +16,7 @@
       </thead>
 
       <tbody>
-        <% @orders.each do |order| %>
+        <% @import_file&.orders&.each do |order| %>
           <tr>
             <td><%= order.purchaser.name %></td>
             <td><%= order.item_description %></td>
