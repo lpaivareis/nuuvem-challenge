@@ -7,6 +7,6 @@ RSpec.describe Merchant do
   end
 
   describe "associations" do
-    it { is_expected.to belong_to(:order) }
+    it { is_expected.to have_many(:orders).dependent(:destroy) }
   end
 end

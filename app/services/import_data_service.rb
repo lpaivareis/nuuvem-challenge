@@ -21,10 +21,10 @@ class ImportDataService < ApplicationService
     @csv_file = CSV.parse(File.open(file_path), col_sep: "\t", headers: :first_row)
 
     csv_file.map do |row|
-      order = create_order(row)
+      purchaser = create_purchaser(name: row[0], purchase_count: row[3])
+      merchant = create_merchant(name: row[5], address: row[4])
 
-      create_purchaser(name: row[0], purchase_count: row[3], order_id: order.id)
-      create_merchant(name: row[5], address: row[4], order_id: order.id)
+      create_order(row, merchant, purchaser)
     end
   end
 
@@ -41,6 +41,8 @@ class ImportDataService < ApplicationService
 
     if purchaser.present?
       purchaser.update!(purchase_count: purchaser.purchase_count + purchaser_params[:purchase_count])
+
+      purchaser
     else
       Purchaser.create!(purchaser_params)
     end
@@ -51,16 +53,20 @@ class ImportDataService < ApplicationService
 
     if merchant.present?
       merchant.update!(address: merchant_params[:address])
+
+      merchant
     else
       Merchant.create!(merchant_params)
     end
   end
 
-  def create_order(order_params)
+  def create_order(order_params, merchant, purchaser)
     Order.create!(
       item_description: order_params[1],
       item_price: order_params[2],
-      import_file_id: @import_file.id
+      import_file_id: @import_file.id,
+      purchaser_id: purchaser.id,
+      merchant_id: merchant.id
     )
   end
 end

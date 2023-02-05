@@ -8,7 +8,7 @@ RSpec.describe Order do
 
   describe "associations" do
     it { is_expected.to belong_to(:import_file) }
-    it { is_expected.to have_one(:purchaser).dependent(:destroy) }
-    it { is_expected.to have_one(:merchant).dependent(:destroy) }
+    it { is_expected.to belong_to(:purchaser) }
+    it { is_expected.to belong_to(:merchant) }
   end
 end

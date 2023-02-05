@@ -1,5 +1,5 @@
 class Purchaser < ApplicationRecord
   validates :name, :purchase_count, presence: true
 
-  belongs_to :order
+  has_many :orders, dependent: :destroy
 end

@@ -48,33 +48,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_203702) do
   create_table "merchants", force: :cascade do |t|
     t.string "name", null: false
     t.string "address"
-    t.integer "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_merchants_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "item_description"
     t.float "item_price"
     t.integer "import_file_id", null: false
+    t.integer "purchaser_id", null: false
+    t.integer "merchant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["import_file_id"], name: "index_orders_on_import_file_id"
+    t.index ["merchant_id"], name: "index_orders_on_merchant_id"
+    t.index ["purchaser_id"], name: "index_orders_on_purchaser_id"
   end
 
   create_table "purchasers", force: :cascade do |t|
     t.string "name", null: false
     t.string "purchase_count"
-    t.integer "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_purchasers_on_order_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "merchants", "orders"
   add_foreign_key "orders", "import_files"
-  add_foreign_key "purchasers", "orders"
+  add_foreign_key "orders", "merchants"
+  add_foreign_key "orders", "purchasers"
 end
