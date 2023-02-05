@@ -4,6 +4,15 @@
     <%= link_to 'Nova Importação', new_import_file_path, class: "btn btn-primary" %>
 </div>
 
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Total de vendas</h5>
+    <p class="card-text">
+      <%= number_to_currency @total_amount %>
+    </p>
+  </div>
+</div>
+
 <div id="import-list">
     <table class="table table-striped">
       <thead>
