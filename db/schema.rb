@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_203702) do
 
   create_table "orders", force: :cascade do |t|
     t.string "item_description"
-    t.string "item_price"
+    t.float "item_price"
     t.integer "import_file_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
