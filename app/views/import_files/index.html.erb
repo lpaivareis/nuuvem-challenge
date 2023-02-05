@@ -45,14 +45,14 @@
               <td><%= file.id %></td>
               <td><%= import_title(file) %></td>
               <td>
-                <%= link_to file, class: "btn btn-success" do %>
+                <%= link_to import_file_path(file), class: "btn btn-success" do %>
                   <span>
                     <i class="bi bi-search"></i>
                   </span>
                 <%end%>
               </td>
               <td>
-                <%= link_to file, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' }  do %>
+                <%= link_to import_file_path(file), method: :delete, class: "btn btn-danger" do %>
                   <span>
                     <i class="bi bi-trash"></i>
                   </span>
